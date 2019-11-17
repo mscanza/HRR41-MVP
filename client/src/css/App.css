@@ -1,0 +1,102 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+#sizer {
+  height: 100px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 10px 10px lightgray;
+  border-radius: 5px;
+  position: relative;
+}
+#instructions {
+  display: block;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+}
+#swatch {
+  margin: 0px 10px;
+}
+
+.size-button {
+  height: 20px;
+}
+
+#square {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  background-color: black;
+  position: absolute;
+  right: 30px;
+  top: 33px;
+}
+
+#circle {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  background-color: black;
+  position: absolute;
+  right: 50px;
+  top: 31px;
+  border-radius: 50%;
+  border: 2px solid mediumSlateBlue;
+}
+
+#brushStatus {
+  font-size: 12px;
+  position: absolute;
+  left: 10px;
+  top: 33px;
+}
+
+#sizing-container {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+}
+
+#colors {
+  position: relative;
+  height: 25px;
+  width: 300px;
+}
+
+.eachColor {
+  position: absolute;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
+.eachColor:hover {
+  cursor: pointer !important;
+  top: -2px !important;
+  width: 18px !important;
+  border: 2px solid mediumSlateBlue !important;
+  z-index: 1 !important;
+}
+
+.painting {
+  padding: 5px;
+  border: 1px solid black;
+  margin: 5px;
+}
+
+.welcome h1 {
+  font-size: 20px;
+}
+
+.welcome button, p, select, input {
+  margin: 5px;
+}

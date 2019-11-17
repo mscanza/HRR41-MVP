@@ -22,8 +22,9 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "jquery": "^3.4.1",
+    "mongo": "^0.1.0",
     "mongodb": "^3.3.2",
-    "mongoose": "^5.7.4",
+    "mongoose": "^5.7.11",
     "path": "^0.12.7",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"

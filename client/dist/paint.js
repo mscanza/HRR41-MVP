@@ -21,7 +21,7 @@ for (let i = 0; i < colorsArray.length; i++) {
 let div = document.createElement('div');
 div.classList.add('eachColor');
 div.style.left = colorPosition + 'px';
-colorPosition += 20;
+colorPosition += 15;
 div.style.backgroundColor = colorsArray[i];
 window.setTimeout(function(){
   colors.append(div)
@@ -94,7 +94,7 @@ stroke.style.position = 'absolute';
 stroke.style.borderRadius = swatch.style.borderRadius;
 stroke.style.left = event.clientX + 'px';
 stroke.style.top = event.clientY + 'px';
-    if (event.clientY <= 100) {
+    if (event.clientY <= 200) {
       stroke.style.display = 'none';
     }
 canvas.append(stroke)
@@ -106,7 +106,7 @@ if (e.target.classList.value.includes('eachColor')) {
   let item =  document.getElementsByClassName('eachColor')[i];
    item.style.border = 'none';
    item.style.top = '0px';
-   item.style.width = '20px';
+   item.style.width = '15px';
    item.style.zIndex = '0';
  }
 
@@ -122,7 +122,7 @@ if (toggler) {
   document.removeEventListener('mousemove', myListener)
   toggler = false;
   return;
-} else if (event.clientY <= 100){
+} else if (event.clientY <= 200){
   return;
 } else {
 toggler = true;

@@ -69,15 +69,18 @@ body {
 
 #colors {
   position: relative;
+  display: flex;
   height: 25px;
-  width: 300px;
+  width: 600px;
+  justify-content: center;
+  align-items: center;
 }
 
 .eachColor {
-  position: absolute;
+  /* position: absolute; */
   display: inline-block;
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
 }
 .eachColor:hover {
   cursor: pointer !important;
@@ -91,6 +94,10 @@ body {
   padding: 5px;
   border: 1px solid black;
   margin: 5px;
+}
+
+.welcome {
+  margin-left: 20px;
 }
 
 .welcome h1 {

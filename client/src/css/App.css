@@ -97,13 +97,32 @@ body {
 }
 
 .welcome {
-  margin-left: 20px;
+  margin-left: 70px;
 }
 
 .welcome h1 {
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .welcome button, p, select, input {
   margin: 5px;
+}
+
+#login {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#userForm {
+  height: 200px;
+  width: 400px;
+  background-color: white;
+  text-align: center;
 }

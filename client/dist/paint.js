@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-  console.log( "ready!" );
 
 let colorsArray = ['black', 'white', 'red', 'blue', 'lime', 'cyan', 'magenta','silver', 'gray','maroon','olive','green','purple','teal','navy', 'aliceblue', 'dodgerblue', 'bisque', 'blueviolet','aquamarine', 'chartreuse','chocolate','coral','cornflowerblue','crimson', 'darkorange','darkseagreen','deeppink', 'dimgray','gold','goldenrod','greenyellow','indigo','ivory','khaki']
 let colorTimer = 25;
@@ -143,7 +142,7 @@ for (let i = 1; i < strokeList.length; i++) {
 $('#canvas').append(strokeList[i]);
 }
 }
-document.getElementById('back').addEventListener('click', appendStrokes);
-document.getElementById('save').addEventListener('click', savePainting);
+// document.getElementById('back').addEventListener('click', appendStrokes);
+// document.getElementById('save').addEventListener('click', savePainting);
 
 });

@@ -9,19 +9,17 @@ mongoose.connect('mongodb://localhost/paintings');
 
 const artistSchema = mongoose.Schema({
   artistName: String,
-  paintings: [{
-    type: String
-  }]
+  paintings: Array
 })
 
 const PaintingModel = mongoose.model('PaintingModel', artistSchema);
 
-const savePainting = function(name, paintingName, paintingData, callback) => {
+const savePainting = (name, paintingName, paintingData, callback) => {
   PaintingModel.findOne({artistName: name}, (err, doc) => {
     if (err) {
       callback(err);
     } else {
-      if (doc.length) {
+      if (doc) {
         let paintings = doc.paintings;
         let exists = false;
         for (let i = 0; i < paintings.length; i++) {
@@ -41,7 +39,9 @@ const savePainting = function(name, paintingName, paintingData, callback) => {
           }
         })
       } else {
-        artist = new PaintingModel({artistName: name, paintings: [[paintingName, paintingData]]})
+       let artist = new PaintingModel({artistName: name, paintings: [[paintingName, paintingData]]})
+      //  console.log(paintingName, paintingData)
+      //   console.log(artist);
         artist.save((err) => {
           if (err) {
             callback(err);
@@ -62,4 +62,35 @@ const getPaintings = (name, callback) => {
       callback(null, doc);
     }
   })
+}
+
+const deletePainting = (name, paintingName, callback) => {
+  PaintingModel.findOne({artistName: name}, (err, doc) => {
+    if (err) {
+      callback(err);
+    } else {
+
+      if (doc) {
+        let paintings = doc.paintings;
+        for (let i = 0; i < paintings.length; i++) {
+          if (paintings[i][0] === paintingName) {
+            paintings.splice(i, 1);
+          }
+        }
+        PaintingModel.updateOne({artistName: name}, {paintings: paintings}, (err, doc) => {
+          if (err) {
+            callback(err);
+          } else {
+            callback(null, doc);
+          }
+        })
+      }
+    }
+  })
+}
+
+module.exports = {
+  savePainting,
+  getPaintings,
+  deletePainting
 }

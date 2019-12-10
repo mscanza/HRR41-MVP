@@ -1,11 +1,17 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect('mongodb://localhost/paintings');
+
+mongoose.connect(process.env.DB, { useNewUrlParser: true });
 
 const artistSchema = mongoose.Schema({
   artistName: String,

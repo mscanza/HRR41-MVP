@@ -33,7 +33,7 @@ class App extends Component{
     let selectedPainting = this.state.newPaintingName || this.state.selected;
       $.ajax({
         type: 'POST',
-        url: `http://localhost:3000/api/${this.state.name}`,
+        url: `/api/${this.state.name}`,
         data: data,
         success: (data) => {
             this.setState({
@@ -66,7 +66,7 @@ class App extends Component{
       this.setState({
         name: myAnswer
       }, () => {
-        $.get(`http://localhost:3000/api/${myAnswer}`,(data) => {
+        $.get(`/api/${myAnswer}`,(data) => {
           data.paintings.forEach(function(item) {
             item[1] = JSON.parse(item[1]);
           })
@@ -129,7 +129,7 @@ class App extends Component{
     }
     $.ajax({
       type: 'DELETE',
-      url: `http://localhost:3000/api/${this.state.name}/${this.state.selected}`,
+      url: `/api/${this.state.name}/${this.state.selected}`,
       success: () => {
         alert('Painting deleted')
       }

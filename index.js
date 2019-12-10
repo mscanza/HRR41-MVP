@@ -42,7 +42,7 @@ app.delete('/api/:artist/:paintingName', (req, res) => {
 })
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 80;
 
 app.listen(PORT, () => {
   console.log(`Web server running on: http://localhost:${PORT}`);

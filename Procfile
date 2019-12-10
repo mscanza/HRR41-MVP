@@ -1,0 +1,1 @@
+web: node index.js & webpack -p & wait -n

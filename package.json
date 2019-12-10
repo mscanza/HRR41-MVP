@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "node index.js & webpack -p & wait -n"
+    "build": "webpack -p"
   },
   "author": "",
   "license": "ISC",

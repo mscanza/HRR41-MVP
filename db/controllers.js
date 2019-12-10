@@ -1,9 +1,7 @@
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-
 dotenv.config();
 
-
+const mongoose = require('mongoose');
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);

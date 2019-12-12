@@ -18,6 +18,16 @@ const artistSchema = mongoose.Schema({
 
 const PaintingModel = mongoose.model('PaintingModel', artistSchema);
 
+const getPaintings = (name, callback) => {
+  PaintingModel.findOne({artistName: name}, (err, doc) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, doc);
+    }
+  })
+}
+
 const savePainting = (name, paintingName, paintingData, callback) => {
   PaintingModel.findOne({artistName: name}, (err, doc) => {
     if (err) {
@@ -39,7 +49,14 @@ const savePainting = (name, paintingName, paintingData, callback) => {
           if (err) {
             callback(err);
           } else {
-            callback(null, doc);
+            getPaintings(name, (err, docs) => {
+              if (err) {
+                callback(err);
+              } else {
+                callback(null, docs);
+              }
+            })
+
           }
         })
       } else {
@@ -50,7 +67,13 @@ const savePainting = (name, paintingName, paintingData, callback) => {
           if (err) {
             callback(err);
           } else {
-            callback(null)
+            getPaintings(name, (err, docs) => {
+              if (err) {
+                callback(err);
+              } else {
+                callback(null, docs)
+              }
+            })
           }
         })
       }
@@ -58,15 +81,7 @@ const savePainting = (name, paintingName, paintingData, callback) => {
   })
 };
 
-const getPaintings = (name, callback) => {
-  PaintingModel.findOne({artistName: name}, (err, doc) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, doc);
-    }
-  })
-}
+
 
 const deletePainting = (name, paintingName, callback) => {
   PaintingModel.findOne({artistName: name}, (err, doc) => {

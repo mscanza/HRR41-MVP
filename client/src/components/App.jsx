@@ -36,11 +36,16 @@ class App extends Component{
         url: `/api/${this.state.name}`,
         data: data,
         success: (data) => {
+          data.paintings.forEach(function(item) {
+            item[1] = JSON.parse(item[1]);
+          })
+            console.log(data)
             this.setState({
               newPaintingName: '',
               name: this.state.name,
               selected: selectedPainting,
-              paintingData: []
+              paintingData: [],
+              paintings: data.paintings
             }, () => {
               console.log(this.state.selected)
             })
@@ -144,11 +149,11 @@ class App extends Component{
         <div className="welcome">
           <h1>Welcome, {this.state.name}</h1>
           <span>Your paintings:</span>
-          <select value={this.state.selected} onChange={this.handlePaintingChange} id="paintings">
+          <select selected={this.state.selected} value={this.state.selected} onChange={this.handlePaintingChange} id="paintings">
             <option value="new">New</option>
-          {this.state.paintings.map((item) => {
+          {this.state.paintings.map((item, idx) => {
             return (
-            <option value={item[0]}>{item[0]}</option>
+            <option key={idx} value={item[0]}>{item[0]}</option>
             )
           })}
           </select>
